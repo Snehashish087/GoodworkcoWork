@@ -1,0 +1,984 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+  <meta charset="utf-8" />
+  <title>GoodWorkCoWorks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.32.1/react-bootstrap.min.js"></script> -->
+  <!-- Pusher JS Library -->
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
+  <script>    
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('c84f164f98584c65f9ea', {
+      cluster: 'ap2',
+      encrypted: true
+    });
+
+    // https://pushjs.org
+    Push.Permission.request();
+    var channel = pusher.subscribe(localStorage.getItem('coworks-accessToken-remember'));
+    channel.bind('notification-event', function (data) {
+      Push.create("GoodWorkCoWorks", {
+        body: data.message,
+        icon: 'icon.png',
+        requireInteraction: true,
+        onClick: function () {
+          window.open("/my_bookings/" + data.booking_type, '_blank');
+          this.close();
+        }
+      });
+    });
+  </script>
+
+<link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/0fb3647a-b98c-45a2-a0e7-7b802069bedd" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/4251c012-ffcb-48ec-830b-8d4df77a2a96" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/f7057fed-519b-4b31-8148-f2ecab87b43b" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/1aa6c5f3-61f3-4970-a256-a49bcc5f20a5" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/5322efcf-d9bd-46d3-9079-426885814058" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/2bab0845-f41f-40de-9958-1ecf5a6a109f" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/e9a4c826-03b0-4d0a-94d5-bcee18219442" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/7002ae5a-c8ab-4e4f-a235-32d45589d437" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/fddf3332-d1d4-4b46-b4f7-938971e228c3" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/2ec52373-02a8-4497-81d7-3097b05ceaf5" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/c4f366cd-3108-4db7-b254-53297a9a0130" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/fb4cc197-33f8-42a9-a356-befed731c3b2" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/1fb09ab2-4cf7-46c2-9ff3-34fa63e98dd8" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/1da4f93d-b486-4999-950d-bc975f67a8e7" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/f60fec99-7efa-4b07-b89b-b885ce1a57b1" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/d88ed644-4934-49a8-9de4-d75a0a6b5695" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/e21c3403-3bdc-44e0-b044-4a841bd6f921" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/3a36aca7-b6d6-4999-94e7-b43555afbc24" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/10636b07-4516-445b-9ba6-fa22414f7f91" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/b2cdccb6-3feb-42f1-8cfc-e2855b2ba49f" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/821e766b-bc84-4736-b375-64081a55a9e2" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/438cd635-302b-42c1-9376-869dc9e5a0e3" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/c0fd9ef4-17fd-45bf-bab3-ce1ef45907fb" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/c6896d96-a3a8-4d48-adb7-8a6c46d39fde" /><link type="text/css" rel="stylesheet" href="blob:https://app.goodworkscowork.com/b40e4aab-0a68-4c2f-a010-48cbeeb41da7" /><style type="text/css">/* ::: ADD THE GOLBAL VARIALBES HERE ::: */
+
+/*
+    Example :
+
+    --primaryColor: red;            // define
+
+    color: var(--primaryColor);     // usage
+
+*/
+
+:root {
+
+  /* Base theme colors */
+
+  --skBlue: #0098d6;
+  --white: #ffffff;
+  --skGrey1: #efefef;
+  --skGrey2: #b5bac3;
+  --skGrey3: #7a858d;
+  --skGrey4: #50505a;
+  --skTint1: #58bce4;
+  --skTint2: #acddf0;
+  --skShade1: #1074a2;
+  --skShade2: #004e71;
+  --black: #000000;
+  --textColor: #333333;
+
+  /* box shadow */
+  --boxShadow: 0 0 11.7px 1.3px rgba(144, 143, 143, 0.23);
+}
+</style><style type="text/css">@import url(https://fonts.googleapis.com/css?family=Nunito:100,300,400,500,600,700);</style><style type="text/css">/* ::: RESET STYLES STARTS ::: */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+html,
+body,
+#root {
+
+  /*height: 100%;*/
+}
+
+::-webkit-input-placeholder {
+
+  /* Chrome/Opera/Safari */
+  font-weight: 400;
+}
+
+::-moz-placeholder {
+
+  /* Firefox 19+ */
+  font-weight: 400;
+}
+
+:-ms-input-placeholder {
+
+  /* IE 10+ */
+  font-weight: 400;
+}
+
+:-moz-placeholder {
+
+  /* Firefox 18- */
+  font-weight: 400;
+}
+
+body {
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  min-width: 1200px;
+  overflow-y: scroll;
+}
+
+.rootChild {
+  height: 100%;
+}
+
+a,
+button,
+input {
+  outline: none;
+  border: 0;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+/* ::: RESET STYLES ENDS ::: */
+
+/* ::: COMMONLY USED CLASSES STARTS ::: */
+
+.fLeft {
+  float: left;
+}
+
+.fRight {
+  float: right;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexCol .list {
+  padding: 10px;
+  list-style: none;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  max-height: 0;
+  opacity: 0;
+  clear: both;
+}
+
+.clearall {
+  clear: both;
+}
+
+.text-capitalized {
+  text-transform: capitalize;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-ellipsis {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-prevent-break {
+  white-space: nowrap;
+}
+
+.margin-right-20 {
+  margin-right: 20px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.padding-lr-25 {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.padding-t-25 {
+  padding-top: 25px;
+}
+
+.display-block {
+  display: block;
+}
+
+.width-height-100per {
+  width: 100%;
+  height: 100%;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ::: COMMONLY USED CLASSES ENDS ::: */
+
+/* ::: CLASSES FOR TESTING STARTS ::: */
+
+.background-test {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* ::: CLASSES FOR TESTING  ENDS ::: */
+
+/* ::: TYPOGRAPHY material icons STARTS HERE ::: */
+
+/* fallback */
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v31/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2)
+    format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ::: TYPOGRAPHY material icons ENDS HERE ::: */
+
+.primaryBtn {
+  height: 40px;
+  width: auto;
+  text-align: center;
+  padding: 0 20px;
+  color: #ffffff;
+  letter-spacing: 0;
+  border-radius: 5px;
+}
+
+.primaryInput {
+  width: 250px;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 5px;
+}
+
+.inputWrapper {
+  width: 250px;
+  vertical-align: bottom;
+  padding-bottom: 5px;
+  float: left;
+  margin: 21px 25px;
+}
+
+.blueBg {
+  background: #0098d6;
+  color: var(--white);
+}
+
+.disabledBtn {
+  background: #bbb;
+  color: #666;
+}
+
+.progressbar-progress {
+  background: #005b80 !important;
+  border-radius: 4px;
+}
+
+/* body wrapper classes starts here */
+
+.bodyWrapper {
+  height: 100%;
+  width: 100%;
+  background: #f6f6f8;
+}
+
+.cmBodyWrapper {
+  width: 93%;
+  height: calc(100vh - 110px);
+  margin: 50px auto 0;
+  overflow: auto;
+  padding: 0;
+}
+
+/* body wrapper classes ends here */
+
+.heading2 {
+  color: #50505a;
+  letter-spacing: 0;
+}
+
+.heading4 {
+  color: #50505a;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+/* tooltip starts here */
+
+.tooltipWrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltipWrapper .tooltip {
+  background: #0098d6;
+  bottom: 100%;
+  height: 30px;
+  color: #ffffff;
+  display: block;
+  left: -40px;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  min-width: 100px;
+  z-index: 1000;
+  top: 50px;
+  transition: all 0.25s ease-out;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+.tooltipWrapper .text {
+  color: #0097d6;
+}
+
+.tooltipWrapper .tooltip:before {
+  bottom: -20px;
+  content: ' ';
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+/* CSS Triangles - see Trevor's post */
+.tooltipWrapper .tooltip:after {
+  top: -5px;
+  content: ' ';
+  left: 50%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #0098d6;
+}
+
+.tooltipWrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  top: 100%;
+}
+
+.Barflex{
+  display: flex;
+  align-items: baseline;
+}
+.WrapperProgressBars{
+  /* width: calc(100% - 200px); */
+  width: 83%;
+}
+
+[role] {
+  outline: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--skGrey1);
+  border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--skBlue);
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--skBlue);
+}
+
+/* Select Dropdown */
+.skSelectDropdownTheme {
+  --styled-select-placeholder__color: #000000;
+  --styled-select__color: #000000;
+  --styled-select__background-color: transparent;
+  --styled-select__border-color: black;
+  --styled-select__border-width: 0;
+  --styled-select__border-radius: 0;
+  --styled-select-arrow__color: #000000;
+  --styled-select-option__background-color: var(--skBlue);
+  --styled-select-option__color--focused: var(--white);
+  --styled-select-option__color--selected: var(--white);
+  --styled-select-option__background-color--focused: var(--skShade1);
+  --styled-select-option__background-color--selected: var(--skShade1);
+  border: 0;
+  min-width: 140px !important;
+  width: auto;
+  height: 34px;
+}
+
+.skDropdownArrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-top: 10px solid #000000;
+}
+
+
+/**
+ * React Select
+ * ============
+ * Created by Jed Watson and Joss Mackison for KeystoneJS, http://www.keystonejs.com/
+ * https://twitter.com/jedwatson https://twitter.com/jossmackison https://twitter.com/keystonejs
+ * MIT License: https://github.com/JedWatson/react-select
+*/
+.Select {
+  position: relative;
+  outline: none;
+}
+.Select input::-webkit-contacts-auto-fill-button,
+.Select input::-webkit-credentials-auto-fill-button {
+  display: none !important;
+}
+.Select input::-ms-clear {
+  display: none !important;
+}
+.Select input::-ms-reveal {
+  display: none !important;
+}
+.Select,
+.Select div,
+.Select input,
+.Select span {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.Select.is-disabled .Select-arrow-zone {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.35;
+}
+.Select.is-disabled &gt; .Select-control {
+  background-color: #f9f9f9;
+}
+.Select.is-disabled &gt; .Select-control:hover {
+  box-shadow: none;
+}
+.Select.is-open &gt; .Select-control {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background: #fff;
+  border-color: #b3b3b3 #ccc #d9d9d9;
+}
+.Select.is-open &gt; .Select-control .Select-arrow {
+  top: -2px;
+  border-color: transparent transparent #999;
+  border-width: 0 5px 5px;
+}
+.Select.is-searchable.is-open &gt; .Select-control {
+  cursor: text;
+}
+.Select.is-searchable.is-focused:not(.is-open) &gt; .Select-control {
+  cursor: text;
+}
+.Select.is-focused &gt; .Select-control {
+  background: #fff;
+}
+.Select.is-focused:not(.is-open) &gt; .Select-control {
+  background: #fff;
+}
+.Select.has-value.is-clearable.Select--single &gt; .Select-control .Select-value {
+  padding-right: 42px;
+}
+.Select.has-value.Select--single &gt; .Select-control .Select-value .Select-value-label,
+.Select.has-value.is-pseudo-focused.Select--single &gt; .Select-control .Select-value .Select-value-label {
+  color: #333;
+}
+.Select.has-value.Select--single &gt; .Select-control .Select-value a.Select-value-label,
+.Select.has-value.is-pseudo-focused.Select--single &gt; .Select-control .Select-value a.Select-value-label {
+  cursor: pointer;
+  text-decoration: none;
+}
+.Select.has-value.Select--single &gt; .Select-control .Select-value a.Select-value-label:hover,
+.Select.has-value.is-pseudo-focused.Select--single &gt; .Select-control .Select-value a.Select-value-label:hover,
+.Select.has-value.Select--single &gt; .Select-control .Select-value a.Select-value-label:focus,
+.Select.has-value.is-pseudo-focused.Select--single &gt; .Select-control .Select-value a.Select-value-label:focus {
+  color: #007eff;
+  outline: none;
+  text-decoration: underline;
+}
+.Select.has-value.Select--single &gt; .Select-control .Select-value a.Select-value-label:focus,
+.Select.has-value.is-pseudo-focused.Select--single &gt; .Select-control .Select-value a.Select-value-label:focus {
+  background: #fff;
+}
+.Select.has-value.is-pseudo-focused .Select-input {
+  opacity: 0;
+}
+.Select.is-open .Select-arrow,
+.Select .Select-arrow-zone:hover &gt; .Select-arrow {
+  border-top-color: #666;
+}
+.Select.Select--rtl {
+  direction: rtl;
+  text-align: right;
+}
+.Select-control {
+  background-color: #fff;
+  border-color: #d9d9d9 #ccc #b3b3b3;
+  border-radius: 0px;
+  border-bottom: 1px solid #ccc;
+  color: #333;
+  cursor: default;
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 36px;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.Select-control:hover {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.Select-control .Select-input:focus {
+  outline: none;
+  background: #fff;
+}
+.Select-placeholder,
+.Select--single &gt; .Select-control .Select-value {
+  bottom: 0;
+  color: #aaa;
+  left: 0;
+  line-height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.Select-input {
+  height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+.Select-input &gt; input {
+  width: 100%;
+  background: none transparent;
+  border: 0 none;
+  box-shadow: none;
+  cursor: default;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  outline: none;
+  line-height: 17px;
+  /* For IE 8 compatibility */
+  padding: 8px 0 12px;
+  /* For IE 8 compatibility */
+  -webkit-appearance: none;
+}
+.is-focused .Select-input &gt; input {
+  cursor: text;
+}
+.has-value.is-pseudo-focused .Select-input {
+  opacity: 0;
+}
+.Select-control:not(.is-searchable) &gt; .Select-input {
+  outline: none;
+}
+.Select-loading-zone {
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 16px;
+}
+.Select-loading {
+  -webkit-animation: Select-animation-spin 400ms infinite linear;
+  -o-animation: Select-animation-spin 400ms infinite linear;
+  animation: Select-animation-spin 400ms infinite linear;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-right-color: #333;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.Select-clear-zone {
+  -webkit-animation: Select-animation-fadeIn 200ms;
+  -o-animation: Select-animation-fadeIn 200ms;
+  animation: Select-animation-fadeIn 200ms;
+  color: #999;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 17px;
+}
+.Select-clear-zone:hover {
+  color: #D0021B;
+}
+.Select-clear {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+}
+.Select--multi .Select-clear-zone {
+  width: 17px;
+}
+.Select-arrow-zone {
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 25px;
+  padding-right: 5px;
+}
+.Select--rtl .Select-arrow-zone {
+  padding-right: 0;
+  padding-left: 5px;
+}
+.Select-arrow {
+  border-color: #999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 2.5px;
+  display: inline-block;
+  height: 0;
+  width: 0;
+  position: relative;
+}
+.Select-control &gt; *:last-child {
+  padding-right: 5px;
+}
+.Select--multi .Select-multi-value-wrapper {
+  display: inline-block;
+}
+.Select .Select-aria-only {
+  position: absolute;
+  display: inline-block;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  float: left;
+}
+@-webkit-keyframes Select-animation-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes Select-animation-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.Select-menu-outer {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top-color: #e6e6e6;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 200px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+}
+.Select-menu {
+  max-height: 198px;
+  overflow-y: auto;
+}
+.Select-option {
+  box-sizing: border-box;
+  background-color: var(--skBlue);
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+}
+.Select-option:last-child {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.Select-option.is-selected {
+  background-color: #f5faff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.04);
+  color: #333;
+}
+.Select-option.is-focused {
+  background-color: #ebf5ff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.08);
+  color: #333;
+}
+.Select-option.is-disabled {
+  color: #cccccc;
+  cursor: default;
+}
+.Select-noresults {
+  box-sizing: border-box;
+  color: #999999;
+  cursor: default;
+  display: block;
+  padding: 8px 10px;
+}
+.Select--multi .Select-input {
+  vertical-align: middle;
+  margin-left: 10px;
+  padding: 0;
+}
+.Select--multi.Select--rtl .Select-input {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.Select--multi.has-value .Select-input {
+  margin-left: 5px;
+}
+.Select--multi .Select-value {
+  background-color: #ebf5ff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.08);
+  border-radius: 2px;
+  border: 1px solid #c2e0ff;
+  /* Fallback color for IE 8 */
+  border: 1px solid rgba(0, 126, 255, 0.24);
+  color: #007eff;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin-left: 5px;
+  margin-top: 5px;
+  vertical-align: top;
+}
+.Select--multi .Select-value-icon,
+.Select--multi .Select-value-label {
+  display: inline-block;
+  vertical-align: middle;
+}
+.Select--multi .Select-value-label {
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  cursor: default;
+  padding: 2px 5px;
+}
+.Select--multi a.Select-value-label {
+  color: #007eff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.Select--multi a.Select-value-label:hover {
+  text-decoration: underline;
+}
+.Select--multi .Select-value-icon {
+  cursor: pointer;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+  border-right: 1px solid #c2e0ff;
+  /* Fallback color for IE 8 */
+  border-right: 1px solid rgba(0, 126, 255, 0.24);
+  padding: 1px 5px 3px;
+}
+.Select--multi .Select-value-icon:hover,
+.Select--multi .Select-value-icon:focus {
+  background-color: #d8eafd;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 113, 230, 0.08);
+  color: #0071e6;
+}
+.Select--multi .Select-value-icon:active {
+  background-color: #c2e0ff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.24);
+}
+.Select--multi.Select--rtl .Select-value {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.Select--multi.Select--rtl .Select-value-icon {
+  border-right: none;
+  border-left: 1px solid #c2e0ff;
+  /* Fallback color for IE 8 */
+  border-left: 1px solid rgba(0, 126, 255, 0.24);
+}
+.Select--multi.is-disabled .Select-value {
+  background-color: #fcfcfc;
+  border: 1px solid #e3e3e3;
+  color: #333;
+}
+.Select--multi.is-disabled .Select-value-icon {
+  cursor: not-allowed;
+  border-right: 1px solid #e3e3e3;
+}
+.Select--multi.is-disabled .Select-value-icon:hover,
+.Select--multi.is-disabled .Select-value-icon:focus,
+.Select--multi.is-disabled .Select-value-icon:active {
+  background-color: #fcfcfc;
+}
+@keyframes Select-animation-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@-webkit-keyframes Select-animation-spin {
+  to {
+    -webkit-transform: rotate(1turn);
+  }
+}
+
+.Select.skSelectDropdownTheme.is-clearable.is-searchable.Select--single {
+    margin-bottom: 10px;
+}
+
+.textAlignLeft {
+  text-align: left;
+  margin-bottom: 130px;
+  margin-top: 130px;
+}
+
+.textAlignRight {
+  text-align: right;
+}
+
+.marginTopLandingPages { /*margin-top: 110px;*/ }
+
+/* unvisited link */
+.defaultLink:link {
+  color: #0275d8;
+}
+
+/* visited link */
+.defaultLink:visited {
+  color: #0275d8;
+}
+
+/* mouse over link */
+.defaultLink:hover {
+  color: #0275d8;
+}
+
+/* selected link */
+.defaultLink:active {
+  color: #0275d8;
+}
+
+/* Center align div content */
+
+.divWrapper {
+    padding-top:25%;
+    width:100%;
+}
+
+.tx {               
+    background-color: transparent;
+    text-align: center; /* horizontal centering */    
+    -webkit-transform: translateY(-50%); /* child now centers itself relative to the midline based on own contents */
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(M11=0.5, M12=0, M21=0, M22=0.5, SizingMethod="auto expand")'; /*IE8 */
+    filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.5, M12=0, M21=0, M22=0.5, SizingMethod='auto expand'); /*IE6, IE7*/
+    transform: translateY(-50%);    
+}
+@media (max-width: 992px){
+  .textAlignLeft{padding: 30px;}
+}
+@media (max-width: 768px){
+  .textAlignLeft {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+}</style></head>
+
+<body>
+  <div id="root"><div data-reactroot=""><div><div class="index__topHeader___3t1ZK"><div class="container"><a href="/"><h1><!-- react-text: 55 -->GoodWorks<!-- /react-text --><strong>COWORK</strong></h1></a><div class="index__topLinks___26Qr7"><ul><li><a class="" href="/">Dashboard</a></li><li><a class="" href="/my_bookings/services">My Bookings</a></li><li><a class="" href="/services">Services</a></li><li><a class="" href="/facilities">Facilities</a></li><li><a class="" href="/feedback">Feedback</a></li></ul></div></div></div><div class="container"><div class="row"><div class="col-md-3"><div><div class="row"><div class="col-md-12"><div class="thumbnail Profile__pRelative___2IMWD"><i role="button" tabindex="0" class="glyphicon glyphicon-pencil Profile__profileImgEdit___3WW8H"></i><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/medium/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" class="" /></a><div class="caption"><h3><!-- react-text: 119 -->Snehashish<!-- /react-text --><!-- react-text: 120 --> <!-- /react-text --><!-- react-text: 121 -->Chakraborty<!-- /react-text --></h3><dl><dd class="Profile__trancate___2uYqs" title="snehashish.chakraborty@goodworklabs.com">snehashish.chakraborty@goodworklabs.com</dd><dd><!-- react-text: 125 -->+<!-- /react-text --><!-- react-text: 126 -->91<!-- /react-text --><!-- react-text: 127 --> <!-- /react-text --><!-- react-text: 128 -->8892518970<!-- /react-text --></dd></dl><dl><dd><a class="defaultLink" href="/edit_profile">Edit Profile</a></dd><dd><a class="defaultLink" href="/change_password">Change password</a></dd></dl></div></div></div></div><div class="static-modal"><!-- react-empty: 135 --></div></div><strong>Following</strong><hr /><div><div class="row"><div class="col-md-3 col-xs-6"><div class="thumbnail"><a href="/user_profile/RnNxSBuUsyA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/525/medium/614743.png" title="Antrick Chowdhury" alt="80x80" width="80" height="80" class="" /></a></div></div><div class="col-md-3 col-xs-6"><div class="thumbnail"><a href="/user_profile/40z-mY-TuX8"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/1/medium/sambit_1.jpg" title="Sambit Mohanty" alt="80x80" width="80" height="80" class="" /></a></div></div><div class="col-md-3 col-xs-6"><div class="thumbnail"><a href="/user_profile/rnpCw3AySQg"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/648/medium/Test_4.jpg" title="Ramesh Babu" alt="80x80" width="80" height="80" class="" /></a></div></div><div class="col-md-3 col-xs-6"><div class="thumbnail"><a href="/user_profile/68kSXirXJcE"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/620/medium/Test_1.jpg" title="Lousina Lawrens" alt="80x80" width="80" height="80" class="" /></a></div></div><div class="col-md-3 col-xs-6"><div class="thumbnail"><a href="/user_profile/_dqca97HzyM"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/288/medium/Test_3.jpg" title="Kirshkey Pseudeo" alt="80x80" width="80" height="80" class="" /></a></div></div><div class="col-md-3 col-xs-6"><div class="thumbnail"><a href="/user_profile/FK_SErJkofs"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/517/medium/user-11781-scaled-350x500.jpg" title="Juliana  D Cathrel" alt="80x80" width="80" height="80" class="" /></a></div></div></div></div></div><div class="col-md-8"><div class="row"><div class="col-sm-12"><div class="row"><div class="col-sm-12 Dashboard__postUpdateFormBlock___3Ty60"><div><div class="form-group"><textarea placeholder="What's on your Mind?" required="" id="formPostUpdate" class="form-control"></textarea></div><!-- react-empty: 142 --></div></div></div><div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/Tv66BCk9T9E"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/23/thumb/Girl_icon.png" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/Tv66BCk9T9E">Ritu Basu</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Hii</p><div style="background-color: rgb(245, 245, 245); width: auto; height: auto;"><img src="https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/176/original/Coworking_Office_GoodWorksCoWork_Whitefield_Bangalore.jpg" style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%;" /></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 164 -->2<!-- /react-text --><!-- react-text: 165 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 169 -->1<!-- /react-text --><!-- react-text: 170 --> Comments<!-- /react-text --></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__commentBody___iYcWC">Nice pic</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 184 --></div></div></div></div></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/Tv66BCk9T9E"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/23/thumb/Girl_icon.png" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/Tv66BCk9T9E">Ritu Basu</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Celebration Party for good work labs 3 years</p><div style="background-color: rgb(245, 245, 245); width: auto; height: auto;"><img src="https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/175/original/Screen_Shot_2018-05-24_at_9.11.44_AM.png" style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%;" /></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 217 -->2<!-- /react-text --><!-- react-text: 218 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 222 -->2<!-- /react-text --><!-- react-text: 223 --> Comments<!-- /react-text --></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/Tv66BCk9T9E"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/23/thumb/Girl_icon.png" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/Tv66BCk9T9E">Ritu Basu</a><div class="Dashboard__commentBody___iYcWC">everybody come to 3 rd floor</div></div><div class="col-sm-2"></div></div></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__commentBody___iYcWC">Okay.. we are there.. :)</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 246 --></div></div></div></div></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/Tv66BCk9T9E"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/23/thumb/Girl_icon.png" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/Tv66BCk9T9E">Ritu Basu</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Hatred does not cease by hatred, but only by love; this is the eternal rule. -- Gautam Budha</p><div style="background-color: rgb(245, 245, 245); width: auto; height: auto;"><img src="https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/174/original/buddha5-2x.jpg" style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%;" /></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 279 -->5<!-- /react-text --><!-- react-text: 280 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 284 -->8<!-- /react-text --><!-- react-text: 285 --> Comments<!-- /react-text --></div><a class="Dashboard__loadMoreCommentLink___2a2DB" href="#">Load More comments</a><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/Tv66BCk9T9E"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/23/thumb/Girl_icon.png" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/Tv66BCk9T9E">Ritu Basu</a><div class="Dashboard__commentBody___iYcWC">@Thanks Juliana</div></div><div class="col-sm-2"></div></div></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/Tv66BCk9T9E"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/23/thumb/Girl_icon.png" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/Tv66BCk9T9E">Ritu Basu</a><div class="Dashboard__commentBody___iYcWC">@Thanks Lousiana</div></div><div class="col-sm-2"></div></div></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/Tv66BCk9T9E"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/23/thumb/Girl_icon.png" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/Tv66BCk9T9E">Ritu Basu</a><div class="Dashboard__commentBody___iYcWC">@Thanks Kirshkey</div></div><div class="col-sm-2"></div></div></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/Tv66BCk9T9E"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/23/thumb/Girl_icon.png" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/Tv66BCk9T9E">Ritu Basu</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">"Thousands of candles can be lighted from a single candle, and the life of the candle will not be shortened. Happiness never decreases by being shared."
+--Gautam Buddha</p><!-- react-empty: 340 --><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 346 -->2<!-- /react-text --><!-- react-text: 347 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 351 -->0<!-- /react-text --><!-- react-text: 352 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/40z-mY-TuX8"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/1/thumb/sambit_1.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/40z-mY-TuX8">Sambit Mohanty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Test</p><div style="background-color: rgb(245, 245, 245); width: auto; height: auto;"><img src="https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/173/original/flower_1.jpg" style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%;" /></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br-"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 385 -->0<!-- /react-text --><!-- react-text: 386 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 390 -->0<!-- /react-text --><!-- react-text: 391 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/rnpCw3AySQg"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/648/thumb/Test_4.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/rnpCw3AySQg">Ramesh Babu</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Any idea how will be the new ios cost would be
+
+ I am selling my old one
+
+ Whoever needs ping me in chat</p><div style="background-color: rgb(245, 245, 245); width: auto; height: 410px;"><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%; height: 66.6667%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/169/original/photo0.jpeg&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/170/original/photo1.jpeg&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/171/original/photo2.jpeg&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/172/original/photo3.jpeg&quot;);"></div></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 424 -->4<!-- /react-text --><!-- react-text: 425 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 429 -->6<!-- /react-text --><!-- react-text: 430 --> Comments<!-- /react-text --></div><a class="Dashboard__loadMoreCommentLink___2a2DB" href="#">Load More comments</a><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/68kSXirXJcE"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/620/thumb/Test_1.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/68kSXirXJcE">Lousina Lawrens</a><div class="Dashboard__commentBody___iYcWC">Go for mac And the latest one is the best. Wanna join me this evening</div></div><div class="col-sm-2"></div></div></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/68kSXirXJcE"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/620/thumb/Test_1.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/68kSXirXJcE">Lousina Lawrens</a><div class="Dashboard__commentBody___iYcWC">Lets eat something</div></div><div class="col-sm-2"></div></div></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__commentBody___iYcWC">Alright guys lets plan for this evening..</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 463 --></div></div></div></div></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/rnpCw3AySQg"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/648/thumb/Test_4.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/rnpCw3AySQg">Ramesh Babu</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">@Snehashish lets tests and throw these dev team bugs and bugs and bugs :P</p><!-- react-empty: 490 --><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 496 -->1<!-- /react-text --><!-- react-text: 497 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 501 -->1<!-- /react-text --><!-- react-text: 502 --> Comments<!-- /react-text --></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__commentBody___iYcWC">Bugs bugs bugs!!!!</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 516 --></div></div></div></div></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 545 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">There is a bat on the top of the roof near the canteen. Did anyone observe that</p><!-- react-empty: 548 --><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 554 -->3<!-- /react-text --><!-- react-text: 555 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 559 -->7<!-- /react-text --><!-- react-text: 560 --> Comments<!-- /react-text --></div><a class="Dashboard__loadMoreCommentLink___2a2DB" href="#">Load More comments</a><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/68kSXirXJcE"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/620/thumb/Test_1.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/68kSXirXJcE">Lousina Lawrens</a><div class="Dashboard__commentBody___iYcWC">Even I saw that. It just hangs and sleeps. Lucky Bat :P</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 575 --></div></div></div></div></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/_dqca97HzyM"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/288/thumb/Test_3.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/_dqca97HzyM">Kirshkey Pseudeo</a><div class="Dashboard__commentBody___iYcWC">Bats ughhhhhhhhh!!!!!!! LOL!!</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 589 --></div></div></div></div></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/rnpCw3AySQg"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/648/thumb/Test_4.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/rnpCw3AySQg">Ramesh Babu</a><div class="Dashboard__commentBody___iYcWC">Its there on top.. Bat man.. @Snehashish</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 603 --></div></div></div></div></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 632 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">My mind is on run to how can i post a new requirement </p><!-- react-empty: 635 --><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 641 -->2<!-- /react-text --><!-- react-text: 642 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 646 -->0<!-- /react-text --><!-- react-text: 647 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 676 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Gajfkfk</p><div style="background-color: rgb(245, 245, 245); width: auto; height: auto; overflow: hidden;"><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; padding-top: 50%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/167/original/photo0.jpeg&quot;); width: 50%;"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; padding-top: 50%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/168/original/photo1.jpeg&quot;); width: 50%;"></div></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br-"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 685 -->0<!-- /react-text --><!-- react-text: 686 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 690 -->1<!-- /react-text --><!-- react-text: 691 --> Comments<!-- /react-text --></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__commentBody___iYcWC">Mello</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 705 --></div></div></div></div></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 734 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">With out panner</p><!-- react-empty: 737 --><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 743 -->1<!-- /react-text --><!-- react-text: 744 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 748 -->1<!-- /react-text --><!-- react-text: 749 --> Comments<!-- /react-text --></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__commentBody___iYcWC">Hey</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 763 --></div></div></div></div></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 792 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Need to left</p><div style="background-color: rgb(245, 245, 245); width: auto; height: auto;"><img src="https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/166/original/687151.jpg" style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%;" /></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 801 -->1<!-- /react-text --><!-- react-text: 802 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 806 -->0<!-- /react-text --><!-- react-text: 807 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 836 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Hello World</p><div style="background-color: rgb(245, 245, 245); width: auto; height: 410px;"><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%; height: 66.6667%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/162/original/Screen_Shot_2018-05-23_at_8.52.14_AM.png&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/163/original/Screen_Shot_2018-05-23_at_8.52.14_AM_1.png&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/164/original/Screen_Shot_2018-05-23_at_8.52.14_AM_2.png&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/165/original/Screen_Shot_2018-05-23_at_8.52.15_AM.png&quot;);"></div></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 845 -->1<!-- /react-text --><!-- react-text: 846 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 850 -->0<!-- /react-text --><!-- react-text: 851 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 880 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Main Atkinson</p><div style="background-color: rgb(245, 245, 245); width: auto; height: 410px;"><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%; height: 66.6667%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/158/original/Screen_Shot_2018-05-23_at_8.52.14_AM.png&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/159/original/Screen_Shot_2018-05-23_at_8.52.14_AM_1.png&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/160/original/Screen_Shot_2018-05-23_at_8.52.14_AM_2.png&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/161/original/Screen_Shot_2018-05-23_at_8.52.15_AM.png&quot;);"></div></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 889 -->1<!-- /react-text --><!-- react-text: 890 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 894 -->1<!-- /react-text --><!-- react-text: 895 --> Comments<!-- /react-text --></div><div class="Dashboard__commentBlock___uqnrz"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9"><a class="Dashboard__commentName___3kRFR" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__commentBody___iYcWC">Whn and where</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 909 --></div></div></div></div></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 938 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Garry atkinson</p><div style="background-color: rgb(245, 245, 245); width: auto; height: 410px;"><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%; height: 66.6667%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/154/original/Screen_Shot_2018-05-23_at_8.52.14_AM.png&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/155/original/Screen_Shot_2018-05-23_at_8.52.14_AM_1.png&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/156/original/Screen_Shot_2018-05-23_at_8.52.14_AM_2.png&quot;);"></div><div style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 33.3333%; height: 33.3333%; background-image: url(&quot;https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/157/original/Screen_Shot_2018-05-23_at_8.52.15_AM.png&quot;);"></div></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br- Dashboard__active___1Cq8P"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 947 -->1<!-- /react-text --><!-- react-text: 948 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 952 -->0<!-- /react-text --><!-- react-text: 953 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 982 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Hello World
+Programming Languages... Passing... POINTER</p><div style="background-color: rgb(245, 245, 245); width: auto; height: auto;"><img src="https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/153/original/Screen_Shot_2018-05-23_at_8.52.14_AM.png" style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%;" /></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br-"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 991 -->0<!-- /react-text --><!-- react-text: 992 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 996 -->0<!-- /react-text --><!-- react-text: 997 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 1026 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Nothing can be on top</p><!-- react-empty: 1029 --><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br-"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 1035 -->0<!-- /react-text --><!-- react-text: 1036 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 1040 -->0<!-- /react-text --><!-- react-text: 1041 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 1070 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Pointer </p><!-- react-empty: 1073 --><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br-"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 1079 -->0<!-- /react-text --><!-- react-text: 1080 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 1084 -->0<!-- /react-text --><!-- react-text: 1085 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 1114 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Ferrari</p><div style="background-color: rgb(245, 245, 245); width: auto; height: auto;"><img src="https://res.cloudinary.com/sambit-gwl/raw/upload/v1/cowork_services/production/user_posts/media/152/original/photo0.jpeg" style="box-sizing: border-box; border: 2px solid rgb(255, 255, 255); float: left; background-size: cover; background-repeat: no-repeat; background-position: center center; cursor: pointer; width: 100%;" /></div><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br-"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 1123 -->0<!-- /react-text --><!-- react-text: 1124 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 1128 -->0<!-- /react-text --><!-- react-text: 1129 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="row"><div class="col-sm-12"><div class="thumbnail"><div class="Dashboard__postUserBlock___1tvRk"><div class="row"><div class="col-sm-1"><a href="/user_profile/baEzrjISsGA"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" alt="60x60" width="60" height="60" class="img-circle" /></a></div><div class="col-sm-9 Dashboard__postUserTextBlock___tmh-8"><a class="Dashboard__postUserName___2KSTh" href="/user_profile/baEzrjISsGA">Snehashish Chakraborty</a><div class="Dashboard__postUserAddress___27A38">sample location</div></div><div class="col-sm-2"><div class="pull-right"><button type="button" class="btn btn-default"><i class="glyphicon glyphicon-option-horizontal" aria-hidden="true" style="top: 3px;"></i></button><div><!-- react-empty: 1158 --></div></div></div></div></div><div class="caption"><p class="Dashboard__postBody___mICwA">Test</p><!-- react-empty: 1161 --><p class="Dashboard__lcBtnPanel___3G80s"><span role="button" tabindex="0" class="Dashboard__likeBtn___30br-"><i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i><span>Like</span></span><span class="Dashboard__likeText___3O0aO"><!-- react-text: 1167 -->0<!-- /react-text --><!-- react-text: 1168 --> Likes<!-- /react-text --></span></p></div><div class="row"><div class="col-sm-12"><div class="Dashboard__commentLabel___3t6Is"><!-- react-text: 1172 -->0<!-- /react-text --><!-- react-text: 1173 --> Comments<!-- /react-text --></div><div><form class="form-horizontal"><div class="row"><div class="CommentForm__commentImgCont___3ATw6 "><div class="CommentForm__commentImg___1GyCB"><img src="https://res.cloudinary.com/sambit-gwl/image/upload/v1/cowork_services/production/profile_images/profile_images/59/thumb/28617037_1648018431943501_1749838651947538137_o_%281%29.jpg" height="60" width="60" class="img-circle" alt="..." /></div></div><div class="col-sm-9 "><div class="CommentForm__commentBody___L3NP4"><input type="text" placeholder="Write a comment..." required="" class="form-control" /></div></div><div class="col-sm-2 "><div class="CommentForm__commentBody___L3NP4"><button type="submit" class="btn btn-primary btn btn-default">Comment</button></div></div></div></form></div></div></div></div></div></div><div class="Dashboard__infLoad___1iFvz"><img src="/src/images/loader.gif" alt="" /></div></div></div></div></div><div class="col-md-1"><div class="index__sidebarWrapper___2ea4_"><nav id="spy"><ul class="sidebarNav nav"><li><a class="RightPanel__sidebarNavAnchor___2x2vK" title="Following" href="/following"><h2 class="fas fa-user-secret"></h2><div>Following</div></a></li><li><a class="RightPanel__sidebarNavAnchor___2x2vK" title="Followers" href="/followers"><h2 class="fas fa-users"></h2><div>Followers</div></a></li><li><a class="RightPanel__sidebarNavAnchor___2x2vK" title="Logout" href="/logout"><h2 class="fas fa-power-off" style="color: rgb(245, 125, 125);"></h2><div>Logout</div></a></li></ul></nav></div></div></div><aside class="ScrollUpButton__Container " style="background-color: rgba(50, 50, 50, 0.5); height: 50px; position: fixed; bottom: 20px; width: 50px; transition: opacity 0.5s ease-in-out, right; cursor: pointer; opacity: 0; right: -50px; z-index: 1000;"><svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" xml:space="preserve" style="display: inline-block; width: 100%; height: 100%; stroke-width: 0; stroke: white; fill: white; padding-left: 10px;"><path d="M19.196 23.429q0 0.232-0.179 0.411l-0.893 0.893q-0.179 0.179-0.411 0.179t-0.411-0.179l-7.018-7.018-7.018 7.018q-0.179 0.179-0.411 0.179t-0.411-0.179l-0.893-0.893q-0.179-0.179-0.179-0.411t0.179-0.411l8.321-8.321q0.179-0.179 0.411-0.179t0.411 0.179l8.321 8.321q0.179 0.179 0.179 0.411zM19.196 16.571q0 0.232-0.179 0.411l-0.893 0.893q-0.179 0.179-0.411 0.179t-0.411-0.179l-7.018-7.018-7.018 7.018q-0.179 0.179-0.411 0.179t-0.411-0.179l-0.893-0.893q-0.179-0.179-0.179-0.411t0.179-0.411l8.321-8.321q0.179-0.179 0.411-0.179t0.411 0.179l8.321 8.321q0.179 0.179 0.179 0.411z"/></svg></aside></div><div class="index__footerGap___9XPH2"> </div></div></div></div>
+<script type="text/javascript" src="/manifest.2d0d0583b7c55037c17c.js"></script><script type="text/javascript" src="/main.2d0d0583b7c55037c17c.js"></script><script type="text/javascript" src="/hot.2d0d0583b7c55037c17c.js"></script>
+
+</body></html>

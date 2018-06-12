@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="1" tests="1" time="0">
+<testcase classname="Login to co-work application" name="Login with valid credentials" time="0">
+<skipped><![CDATA[Given User is in login screen...............................................undefined
+When He clicks on sign in button............................................undefined
+Then He should be able to view username field...............................undefined
+And He should be able to view the password field............................undefined
+When The user enters a registered phone number..............................undefined
+And He enters a password related to the phone number........................undefined
+And Click on sign in........................................................undefined
+Then He should be able to view the Home page of the application.............undefined
+]]></skipped>
+</testcase>
+</testsuite>
